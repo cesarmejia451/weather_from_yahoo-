@@ -1,0 +1,13 @@
+<h1>Your Weather Report</h1>
+<h2>Current Temp: <%= @Temperatures["query"]["results"]["channel"]["item"]["condition"]["temp"] %> F°</h2>
+<hr>
+<h1>Weekly Forecast: </h1>
+
+<% @Temperatures["query"]["results"]["channel"]["item"]["forecast"].each do |temperature| %>
+  <h3>Date: <%= temperature["date"] %></h3>
+  <h3>Day: <%= temperature["day"] %></h3>
+  <h3>High: <%= temperature["high"] %></h3>
+  <h3>Low: <%= temperature["low"] %></h3>
+  <h3><%= temperature["text"] %></h3>
+  <hr>
+<% end %>

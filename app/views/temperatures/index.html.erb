@@ -1,0 +1,26 @@
+<h1>Forecast</h1>
+
+<h4>Find the Weather in your Area</h4>
+
+<%= form_tag '/', method: :get do %>
+  <%= label_tag :city %>
+  <%= text_field_tag :city %>
+  <%= label_tag :state %>
+  <%= text_field_tag :state %>
+  <%= submit_tag "Submit" %>
+<% end %>
+
+<h2>Location: <%= @city.titleize %>, <%= @state.upcase %></h2>
+<h2>Current Temp: <%= @current %>° F</h2>
+<hr>
+<h1>Weekly Forecast: </h1>
+
+<% @forecasts.each do |forecast| %>
+  <h3>Date: <%= forecast["date"] %></h3>
+  <h3>Day: <%= forecast["day"] %></h3>
+  <h3>High: <%= forecast["high"] %></h3>
+  <h3>Low: <%= forecast["low"] %></h3>
+  <h3><%= forecast["text"] %></h3>
+  <hr>
+<% end %>
+
